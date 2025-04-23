@@ -1,0 +1,93 @@
+create database batch1_2025;
+use batch1_2025;
+
+show tables;
+
+create table customer(
+id int,
+name varchar(20),
+age int, 
+location varchar(50),
+gender varchar(10)
+);
+
+
+insert into customer values (101, 'sai', 25, 'hyd', 'Male');
+
+select *from customer;
+
+select name,age from customer;
+
+insert into customer values (105, 'titanic', 100, 'arctic-sea', 'others');
+
+select *from customer;
+
+select name,age from customer;
+
+select name,age from customer limit 1;
+
+select id, name,age,location,gender from customer ;
+
+desc customer;
+
+
+
+insert into customer values ();
+
+select *from customer;
+
+
+
+create table if not exists employee(
+	id int,
+    name VARCHAR(50),
+    age int,
+    hiring_date date,
+    salary int,
+    city varchar(50)
+);
+
+
+insert into employee values(1,'Sai', 24, '2021-08-10', 10000, 'Lucknow');
+insert into employee values(2,'Patel', 25, '2021-08-10', 20000, 'Khajuraho');
+insert into employee values(3,'Karthik', 22, '2021-08-11', 11000, 'Banglore');
+insert into employee values(5,'Rani', 25, '2021-08-11', 12000, 'Hyderabad');
+insert into employee values(6,'Eswar', 26, '2021-08-12', 50000, 'Hyderabad');
+
+select *from employee;
+
+select count(*) as count_emp from employee;
+
+select * from employee where city = "Hyderabad";
+
+select * from employee where city in ("Hyderabad", "Banglore");
+
+select *from employee where city != "Lucknow";
+
+select *from employee where city not in ("Lucknow", "Banglore");
+
+select *from employee where city <> "Lucknow";
+
+select *from employee;
+
+select *from employee where salary <= 11000;
+
+select max(salary) as max_sal from employee;
+
+select *from employee where city like '%era%';
+
+select *from employee order by salary desc;
+
+select *from employee order by salary asc;
+
+
+select *from employee order by salary desc  limit 2;
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE employee
+SET salary = 25000
+WHERE id = 1;
+
+
+
